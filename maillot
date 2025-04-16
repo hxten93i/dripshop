@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maillots eSport - Drip Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      color: #ff003c;
+      text-shadow: 0 0 10px #ff003c;
+    }
+    .content-box {
+      background-color: #1f1f1f;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+    }
+    .discord-box {
+      margin-top: 2rem;
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .discord-box a {
+      padding: 0.5rem 1rem;
+      background-color: #ff003c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .buy-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff003c;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #ff003c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Maillots eSport -60%</h1>
+  <div class="content-box">
+    <p>Maillots venant de boutiques originelles. Origine : États-Unis & France.</p>
+    <p>✅ Livraison chez vous en 2 semaines</p>
+    <p>🛍️ Promotion exceptionnelle à -60%</p>
+    <a class="buy-button" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sugoynekaneki@gmail.com&currency_code=EUR&amount=30.00&item_name=Maillots%20eSport%20-%2060%25" target="_blank">Acheter - 30€</a>
+  </div>
+
+  <div class="discord-box">
+    <span>Pour toute commande, vous devez rejoindre le serveur Discord ci-dessous avec preuve d'achat.</span>
+    <a href="https://discord.gg/nvNNv6VA9d" target="_blank">Rejoindre Discord</a>
+  </div>
+</body>
+</html>
+
