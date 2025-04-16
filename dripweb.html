@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Shop - Boutique Gaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ff003c;
+      text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 30px #ff003c;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #111;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #ff003c;
+    }
+    .content {
+      padding: 2rem;
+    }
+    h2 {
+      color: #ff003c;
+      text-shadow: 0 0 5px #ff003c;
+    }
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .product {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+    }
+    .product img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .product button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #ff003c;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #ff003c;
+    }
+    .notification {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #ff003c;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ff003c;
+      color: white;
+      font-weight: bold;
+      z-index: 1000;
+      display: none;
+    }
+    .cart {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+    }
+    .stream-section {
+      margin-top: 3rem;
+    }
+    .stream {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+    }
+    .stream iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    button[type="submit"] {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff003c;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ff003c;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="notification" class="notification"></div>
+  <header>Drip Shop</header>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Boutique</a>
+    <a href="#esports">eSports / Stream</a>
+    <a href="#cart">Panier</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="content">
+    <h2>Boutique Gaming</h2>
+    <div class="product-list">
+      <div class="product">
+        <a href="unlockall.html">
+          <img src="images/unlock.jpg" alt="unlock all">
+          <h3>Unlock All</h3>
+        </a>
+        <p>29,99€</p>
+        <button onclick="addToCart('Unlock All', 29.99)">Acheter</button>
+      </div>
+      <div class="product">
+        <a href="externalv3.html">
+          <img src="images/externalv3.jpg" alt="external v3">
+          <h3>External V3</h3>
+        </a>
+        <p>49,99€</p>
+        <button onclick="addToCart('External V3', 49.99)">Acheter</button>
+      </div>
+      <div class="product">
+        <a href="maillot.html">
+          <img src="images/maillot.jpg" alt="maillots esport">
+          <h3>Maillots eSport -60%</h3>
+        </a>
+        <p>30,00€</p>
+        <button onclick="addToCart('Maillots eSport -60%', 30.00)">Acheter</button>
+      </div>
+    </div>
+
+    <div id="cart" class="cart">
+      <h2>Votre Panier</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: <span id="cart-total">0.00</span>€</p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="business" value="sugoynekaneki@gmail.com">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="hidden" name="upload" value="1">
+        <div id="paypal-items"></div>
+        <button type="submit">Payer avec PayPal</button>
+      </form>
+    </div>
+
+    <div id="esports" class="stream-section">
+      <h2>eSports / Stream</h2>
+      <div class="stream">
+        <h3>Stream en direct - JoueurX</h3>
+        <iframe src="https://player.twitch.tv/?channel=joueurx&parent=127.0.0.1" allowfullscreen></iframe>
+      </div>
+      <div class="stream">
+        <h3>Dernier tournoi - Highlights</h3>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Drip Shop - Tous droits réservés<br>
+    SIREN : 948 372 516 (généré fictivement)
+  </footer>
+  <script>
+    const cart = [];
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      updateCart();
+      showNotification(`${product} a été ajouté au panier.`);
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      const paypalItems = document.getElementById("paypal-items");
+      cartItems.innerHTML = "";
+      paypalItems.innerHTML = "";
+
+      let total = 0;
+      cart.forEach((item, i) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.product} - ${item.price.toFixed(2)}€`;
+        cartItems.appendChild(li);
+        total += item.price;
+
+        const name = document.createElement("input");
+        name.type = "hidden";
+        name.name = `item_name_${i + 1}`;
+        name.value = item.product;
+
+        const amount = document.createElement("input");
+        amount.type = "hidden";
+        amount.name = `amount_${i + 1}`;
+        amount.value = item.price.toFixed(2);
+
+        const qty = document.createElement("input");
+        qty.type = "hidden";
+        qty.name = `quantity_${i + 1}`;
+        qty.value = 1;
+
+        paypalItems.appendChild(name);
+        paypalItems.appendChild(amount);
+        paypalItems.appendChild(qty);
+      });
+
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function showNotification(message) {
+      const notif = document.getElementById("notification");
+      notif.textContent = message;
+      notif.style.display = "block";
+      setTimeout(() => {
+        notif.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
